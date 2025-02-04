@@ -1,90 +1,77 @@
-
-html {
-  font-size: 14px;
-}
-
-@media (max-width: 768px) {
-  html {
-    font-size: 16px; /* Or another size that suits mobile */
-  }
-}
-
+/* Dark Mode Variables */
 :root {
+  --bs-dark-rgb: 33, 37, 41; /* Bootstrap dark background color */
+  --bs-secondary-bg-rgb: 108, 117, 125; /* Bootstrap secondary background color */
+  --bs-light-rgb: 248, 249, 250; /* Bootstrap light text color */
+  --bs-body-font-family: Georgia, 'Times New Roman', Times, serif;
+  --bs-body-font-size: 1.125rem; /* Equivalent to 18px */
+  --bs-body-line-height: 1.5;
   --primary-color: #707070;
   --secondary-color: #9041df;
-  --accent-color: #663399; 
+  --accent-color: #663399;
   --background-color: #111111;
   --text-color: #D0D4C8;
   --secondary-text: #585858;
 }
 
 /* General Body Styling */
-body { 
+body {
   background-color: var(--background-color);
   color: var(--text-color);
-  text-align: center;
-  font-family:Georgia, 'Times New Roman', Times, serif;
-  display: grid;
-  place-content: center;
-  max-width: 960px;
-  margin: auto;
-
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 1.8rem;
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  line-height: var(--bs-body-line-height);
 }
 
-h1 {
-  font-size: 4rem;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
+/* Headings */
+h1, .display-4 {
+  font-size: calc(1.475rem + 2.7vw); /* Responsive font size similar to Bootstrap's display-4 */
+  font-weight: 300;
+  line-height: 1.2;
 }
 
-#profile {
-  max-width: 25rem;
-  margin: auto;
-  padding-bottom: 3rem;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+@media (min-width: 1200px) {
+  h1, .display-4 {
+    font-size: 3.5rem; /* Fallback for larger screens */
+  }
+}
+
+h3, .fs-5 {
+  font-size: 1.25rem;
+}
+
+h5, .fs-6 {
+    font-size: 1rem;
+}
+
+/* Profile Image */
+.profile-img {
   filter: grayscale(100%);
 }
 
 /* Navigation */
-nav {
-  margin-top: 0x;
-  margin-bottom: 25px;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-nav ul {
-  list-style: none;
-  margin: auto;
+.navbar {
+  font-weight: 500;
 }
 
-nav ul li {
-  margin-right: 25px;
+.nav-link {
+  color: var(--bs-light-rgb); /* Light text color for links */
 }
 
-nav ul li a {
-  text-decoration: none;
+.nav-link:hover, .nav-link:focus {
+  color: var(--secondary-color);
 }
 
-#about-me {
-  margin-left: 2rem;
-  margin-right: 2rem;
-  margin-bottom: 3rem;
+/* Sections */
+section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
-#blog {
-  margin-left: 2rem;
-  margin-right: 2rem;
-  text-align: left;
-  margin-bottom: 3rem;
-  margin-top: 3rem;
-}
-
+/* Blog */
 .blog-meta {
   font-style: italic;
-  font-size: 1.5rem;
+  font-size: 1rem; /* Reduced from 1.5rem */
 }
 
 /* Links */
@@ -93,73 +80,99 @@ a {
   text-decoration: none;
 }
 
-a:hover, a:active {
+a:hover,
+a:active {
   color: var(--secondary-color);
 }
 
-/* Animated Text */
+/* Animated Text (Wibble) */
 .wibble {
   display: inline-block;
   color: var(--accent-color);
   font-style: italic;
   animation: wiggle 2s infinite;
-
 }
 
 @keyframes wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25%, 100% { transform: rotate(0deg); }
-  33.33% { transform: rotate(5deg); }
-  41.67% { transform: rotate(-4deg); }
-  50% { transform: rotate(2deg); }
-  0%, 100% {transform: scale(1.1);}
-
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25%, 100% {
+    transform: rotate(0deg);
+  }
+  33.33% {
+    transform: rotate(5deg);
+  }
+  41.67% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  0%, 100% {
+    transform: scale(1.1);
+  }
 }
 
-/* Projects Section */
-.project-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 3rem;
-  padding: 2.5rem;
-}
-
+/* Project Overview Cards */
 .project-overview {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem;
+  background: linear-gradient(to bottom, #141414, #1C1E24);
   border: 0.3rem solid var(--accent-color);
-  border-radius: 3rem;
-  background: linear-gradient(#141414, #1C1E24);
-  transition: transform 1s ease, box-shadow 1s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-overview:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 10px var(--primary-color);
+  box-shadow: 0 0.5rem 1rem rgba(var(--bs-dark-rgb), 0.55);
 }
 
+/* Project Titles and Descriptions */
 .project-title {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
+  font-size: 1.25rem; /* Reduced from 2.2rem */
+  margin-bottom: 0.5rem;
 }
 
 .project-description {
-  font-size: 1.8rem;
   color: var(--accent-color);
 }
 
+/* Project Links */
 .project-link {
-  display: inline-block;
-  padding: 10px 25px;
-  font-size: 2rem;
-  color:#000000;
   background-color: var(--secondary-color);
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  color: #000000;
 }
 
 .project-link:hover {
   background-color: #000000;
+  color: var(--bs-light-rgb);
+}
+
+/* Form */
+.form-control {
+    background-color: var(--bs-dark-rgb);
+    color: var(--bs-light-rgb);
+    border-color: var(--bs-secondary-bg-rgb);
+}
+
+.form-control:focus {
+    background-color: var(--bs-dark-rgb);
+    color: var(--bs-light-rgb);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.25rem rgba(var(--secondary-color), 0.25);
+}
+
+.form-check-input:checked {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Button */
+.btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
 }
