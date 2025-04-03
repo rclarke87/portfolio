@@ -1,4 +1,40 @@
-.profile-img {
-  outline: 4px solid rebeccapurple;
-  outline-offset: 8px;
+.btn-primary.custom-bg {
+  background-color: #E2F0CB;
+  border-color: black;
+  border-width: 0.1rem;
+  color: black;
+}
+
+.btn-primary.custom-bg:hover{
+  background-color: #bdd39a;
+  border-color: black;
+  border-width: 0.1rem;
+  color: black;
+}
+
+#brand {
+  
+  font-size: 2rem;
+  font-weight: 100 !important;
+  color: #E2F0CB;
+}
+
+.knewave-regular {
+    font-family: "Knewave", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.nav-item a {
+    color: #ebebeb;
+}
+
+.btn-outline-secondary-custom {
+  border-color: black!important;
+}
+
+.btn-outline-secondary-custom:hover,
+.btn-outline-secondary-custom:focus,
+.btn-outline-secondary-custom:active {
+  border-color: black!important;;
 }
